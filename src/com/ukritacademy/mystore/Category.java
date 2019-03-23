@@ -30,19 +30,19 @@ public class Category {
         this.products = products;
     }
 
-    public void addProduct(Product product){
+    public void addProduct(Product product) {
         Product[] temp = new Product[this.products.length + 1];
         int i = 0;
-        for (Product item : this.products){
+        for (Product item : this.products) {
             temp[i++] = item;
         }
         temp[this.products.length] = product;
         products = temp;
     }
 
-    public void printProductsInCategory(){
+    public void printProductsInCategory() {
         int i = 0;
-        for(Product item : products) {
+        for (Product item : products) {
             System.out.println("\t" + (++i) + ". " + item.toString());
         }
     }

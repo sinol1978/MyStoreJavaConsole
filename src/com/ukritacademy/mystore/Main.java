@@ -9,7 +9,6 @@ public class Main {
         Product product5 = new Product("Scott", 730.5, 3);
         Product product6 = new Product("Cannondale", 900.5, 5);
         Product product7 = new Product("Swinn", 870.5, 4);
-        System.out.println(product1.toString());
 
         Category cat1 = new Category("Cameras");
         Category cat2 = new Category("Books");
@@ -17,20 +16,27 @@ public class Main {
 
         cat1.addProduct(product3);
         cat1.addProduct(product4);
-        System.out.println(cat1.toString());
-        cat1.printProductsInCategory();
+
 
         cat2.addProduct(product1);
         cat2.addProduct(product2);
-        System.out.println("\n\n" + cat2.toString());
-        cat2.printProductsInCategory();
+
 
         cat3.addProduct(product5);
         cat3.addProduct(product6);
         cat3.addProduct(product7);
-        System.out.println("\n\n" + cat3.toString());
-        cat3.printProductsInCategory();
 
+//        System.out.println(cat1.toString());
+//        cat1.printProductsInCategory();
+//        System.out.println("\n\n" + cat2.toString());
+//        cat2.printProductsInCategory();
+//        System.out.println("\n\n" + cat3.toString());
+//        cat3.printProductsInCategory();
 
+        User user = new User("userlogin", "userpassword");
+        user.getShoppingCart().addProductToCart(product1);
+        user.getShoppingCart().addProductToCart(product2);
+        System.out.println(user.getShoppingCart().toString());
+        user.getShoppingCart().printProductsInCart();
     }
 }
