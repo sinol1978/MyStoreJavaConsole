@@ -26,13 +26,6 @@ public class Main {
         cat3.addProduct(product6);
         cat3.addProduct(product7);
 
-//        System.out.println(cat1.toString());
-//        cat1.printProductsInCategory();
-//        System.out.println("\n\n" + cat2.toString());
-//        cat2.printProductsInCategory();
-//        System.out.println("\n\n" + cat3.toString());
-//        cat3.printProductsInCategory();
-
         User user = new User("userlogin", "userpassword");
         user.getShoppingCart().addProductToCart(product1);
         user.getShoppingCart().addProductToCart(product2);
