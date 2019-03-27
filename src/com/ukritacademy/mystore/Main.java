@@ -75,6 +75,7 @@ public class Main {
             break;
             case CONFIRMORDER: {
                 user.getShoppingCart().printProductsInCart();
+                user.getShoppingCart().сlearCart();
             }
             break;
             default:
