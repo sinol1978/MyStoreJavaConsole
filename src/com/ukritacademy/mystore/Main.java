@@ -17,12 +17,8 @@ public class Main {
 
         cat1.addProduct(product3);
         cat1.addProduct(product4);
-
-
         cat2.addProduct(product1);
         cat2.addProduct(product2);
-
-
         cat3.addProduct(product5);
         cat3.addProduct(product6);
         cat3.addProduct(product7);
