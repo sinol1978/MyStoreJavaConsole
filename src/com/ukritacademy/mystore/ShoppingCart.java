@@ -34,6 +34,10 @@ public class ShoppingCart {
         }
     }
 
+    public void сlearCart(){
+        this.setProductsInCart(new Product[0]);
+    }
+
     @Override
     public String toString() {
         double total = 0.0;

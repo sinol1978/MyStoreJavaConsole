@@ -23,33 +23,30 @@ public class Main {
         cat3.addProduct(product6);
         cat3.addProduct(product7);
 
-//        user.getShoppingCart().addProductToCart(product1);
-//        user.getShoppingCart().addProductToCart(product2);
-//        System.out.println(user.getShoppingCart().toString());
-//        user.getShoppingCart().printProductsInCart();
+        User user = new User();
 
-        Actions actions = Actions.LOGIN;
-        switch (actions){
-            case LOGIN:{
-                User user = new User("userlogin", "userpassword");
+        Actions actions = Actions.PRODUCTLIST;
+        switch (actions) {
+            case LOGIN: {
+                user = NavigationHelper.getAuth();
             }
             break;
-            case CATLIST:{
-                for(Category item : categories){
-                    System.out.println(item.toString());
-                }
+            case CATLIST: {
+                NavigationHelper.getCategories(categories);
             }
             break;
-            case PRODUCTLIST:{
-
+            case PRODUCTLIST: {
+                NavigationHelper.getProducts(cat1);
             }
             break;
-            case ADDTOCART:{
-
+            case ADDTOCART: {
+                user.getShoppingCart().addProductToCart(product1);
+                user.getShoppingCart().addProductToCart(product2);
+                System.out.println(user.getShoppingCart().toString());
             }
             break;
-            case CONFIRMORDER:{
-
+            case CONFIRMORDER: {
+                user.getShoppingCart().printProductsInCart();
             }
             break;
             default:
