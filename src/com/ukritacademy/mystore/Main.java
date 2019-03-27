@@ -1,5 +1,7 @@
 package com.ukritacademy.mystore;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Product product1 = new Product("Comics book", 10.5, 5);
@@ -24,9 +26,35 @@ public class Main {
         cat3.addProduct(product7);
 
         User user = new User();
+        System.out.println("1. Log In");
+        System.out.println("2. Categories");
+        System.out.println("3. Products");
+        System.out.println("4. Cart");
+        System.out.println("5. Confirm Order");
+        Scanner sc = new Scanner(System.in);
+        String choice = sc.nextLine();
 
-        Actions actions = Actions.PRODUCTLIST;
-        switch (actions) {
+        Action action = Action.LOGIN;
+
+        switch (action) {
+            case LOGIN:
+                NavigationHelper.getAuth();
+                break;
+            case CATLIST:
+                NavigationHelper.getCategories(categories);
+                break;
+            case PRODUCTLIST:
+                NavigationHelper.getProducts(cat1);
+                break;
+            case ADDTOCART:
+                user.getShoppingCart().addProductToCart(product3);
+                break;
+            case CONFIRMORDER:
+                System.out.println(user.getShoppingCart().toString());
+                user.getShoppingCart().сlearCart();
+                break;
+        }
+        switch (action) {
             case LOGIN: {
                 user = NavigationHelper.getAuth();
             }

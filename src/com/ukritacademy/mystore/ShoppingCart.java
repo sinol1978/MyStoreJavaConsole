@@ -28,13 +28,17 @@ public class ShoppingCart {
     }
 
     public void printProductsInCart() {
-        int i = 0;
-        for (Product item : productsInCart) {
-            System.out.println("\t" + (++i) + ". " + item.toString());
+        if (productsInCart.length > 0) {
+            int i = 0;
+            for (Product item : productsInCart) {
+                System.out.println("\t" + (++i) + ". " + item.toString());
+            }
+        } else {
+            System.out.println("Shopping cart is empty.");
         }
     }
 
-    public void сlearCart(){
+    public void сlearCart() {
         this.setProductsInCart(new Product[0]);
     }
 
