@@ -31,7 +31,7 @@ public class ShoppingCart {
         if (productsInCart.length > 0) {
             int i = 0;
             for (Product item : productsInCart) {
-                System.out.println("\t" + (++i) + ". " + item.toString());
+                System.out.println("\t" + (++i) + ". " + item);
             }
         } else {
             System.out.println("Shopping cart is empty.");
