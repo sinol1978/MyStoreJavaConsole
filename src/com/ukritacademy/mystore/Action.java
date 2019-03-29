@@ -1,5 +1,5 @@
 package com.ukritacademy.mystore;
 
 public enum Action {
-    LOGIN, CATLIST, PRODUCTLIST, ADDTOCART, CONFIRMORDER;
+    LOGIN, CATEGORY_LIST, PRODUCT_LIST, ADD_TO_CART, CONFIRM_ORDER;
 }
