@@ -1,7 +1,5 @@
 package com.ukritacademy.mystore;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Product product1 = new Product("Comics book", 10.5, 5);
@@ -31,54 +29,27 @@ public class Main {
         System.out.println("3. Products");
         System.out.println("4. Cart");
         System.out.println("5. Confirm Order");
-        Scanner sc = new Scanner(System.in);
-        String choice = sc.nextLine();
 
-        Action action = Action.LOGIN;
+        String choice = NavigationHelper.getScanner().nextLine();
+        Action action = Action.valueOf(choice);
 
         switch (action) {
             case LOGIN:
-                NavigationHelper.getAuth();
+                user = NavigationHelper.getAuth();
                 break;
-            case CATLIST:
+            case CATEGORY_LIST:
                 NavigationHelper.getCategories(categories);
                 break;
-            case PRODUCTLIST:
+            case PRODUCT_LIST:
                 NavigationHelper.getProducts(cat1);
                 break;
-            case ADDTOCART:
+            case ADD_TO_CART:
                 user.getShoppingCart().addProductToCart(product3);
                 break;
-            case CONFIRMORDER:
-                System.out.println(user.getShoppingCart().toString());
+            case CONFIRM_ORDER:
+                System.out.println(user.getShoppingCart());
                 user.getShoppingCart().сlearCart();
                 break;
-        }
-        switch (action) {
-            case LOGIN: {
-                user = NavigationHelper.getAuth();
-            }
-            break;
-            case CATLIST: {
-                NavigationHelper.getCategories(categories);
-            }
-            break;
-            case PRODUCTLIST: {
-                NavigationHelper.getProducts(cat1);
-            }
-            break;
-            case ADDTOCART: {
-                user.getShoppingCart().addProductToCart(product1);
-                user.getShoppingCart().addProductToCart(product2);
-                System.out.println(user.getShoppingCart().toString());
-            }
-            break;
-            case CONFIRMORDER: {
-                user.getShoppingCart().printProductsInCart();
-                user.getShoppingCart().сlearCart();
-            }
-            break;
-            default:
         }
     }
 }

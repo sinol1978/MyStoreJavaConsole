@@ -3,16 +3,15 @@ package com.ukritacademy.mystore;
 import java.util.Scanner;
 
 public class NavigationHelper {
+    private static Scanner scanner = new Scanner(System.in);
 
     public static User getAuth() {
-        Scanner sc = new Scanner(System.in);
         String login, password;
         System.out.println("Login: ");
-        login = sc.nextLine();
+        login = scanner.nextLine();
         System.out.println("Password: ");
-        password = sc.nextLine();
-        User user = new User(login, password);
-        return user;
+        password = scanner.nextLine();
+        return new User(login, password);
     }
 
     public static void getCategories(Category[] categories) {
@@ -23,5 +22,9 @@ public class NavigationHelper {
 
     public static void getProducts(Category category) {
         category.printProductsInCategory();
+    }
+
+    public static Scanner getScanner() {
+        return scanner;
     }
 }

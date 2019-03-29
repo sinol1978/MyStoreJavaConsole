@@ -1,6 +1,5 @@
 package com.ukritacademy.mystore;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -43,7 +42,7 @@ public class Category {
     public void printProductsInCategory() {
         int i = 0;
         for (Product item : products) {
-            System.out.println("\t" + (++i) + ". " + item.toString());
+            System.out.println("\t" + ++i + ". " + item);
         }
     }
 
