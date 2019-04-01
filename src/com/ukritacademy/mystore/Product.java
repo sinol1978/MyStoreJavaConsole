@@ -40,7 +40,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Name: " + this.getName() + "\tPrice: " + this.getPrice() + "\tRating: " + this.getRating();
+        return String.format("Name: %15s\tPrice:%7.2f$\tRating:%3s", this.getName(), this.getPrice(), this.getRating());
     }
 
     @Override

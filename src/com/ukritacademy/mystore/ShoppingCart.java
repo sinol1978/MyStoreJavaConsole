@@ -25,6 +25,7 @@ public class ShoppingCart {
         }
         temp[this.productsInCart.length] = product;
         productsInCart = temp;
+        System.out.println(String.format("Product %s was added in your cart", productsInCart[productsInCart.length - 1]));
     }
 
     public void printProductsInCart() {

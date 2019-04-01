@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+     
         Product product1 = new Product("Comics book", 10.5, 5);
         Product product2 = new Product("Magazine", 1.2, 3);
         Product product3 = new Product("Canon", 300.5, 5);
@@ -26,32 +27,32 @@ public class Main {
         cat3.addProduct(product7);
 
         User user = new User();
-        System.out.println("1. Log In");
-        System.out.println("2. Categories");
-        System.out.println("3. Products");
-        System.out.println("4. Cart");
-        System.out.println("5. Confirm Order");
+        while(true) {
+            System.out.println("1. Log In\t2. Categories\t3. Products\t4. Cart\t5. Confirm Order\t6. Exit");
 
-        Scanner sc = new Scanner(System.in);
-        String choice = sc.nextLine();
-        Action action = Action.values()[Integer.parseInt(choice)-1];
-        switch (action) {
-            case LOGIN:
-                user = NavigationHelper.getAuth();
-                break;
-            case CAT_LIST:
-                NavigationHelper.getCategories(categories);
-                break;
-            case PRODUCT_LIST:
-                NavigationHelper.getProducts(cat1);
-                break;
-            case ADD_TO_CART:
-                user.getShoppingCart().addProductToCart(product3);
-                break;
-            case CONFIRM_ORDER:
-                System.out.println(user.getShoppingCart().toString());
-                user.getShoppingCart().сlearCart();
-                break;
+            Scanner sc = new Scanner(System.in);
+            String choice = sc.nextLine();
+            Action action = Action.values()[Integer.parseInt(choice) - 1];
+            switch (action) {
+                case LOGIN:
+                    user = NavigationHelper.getAuth();
+                    break;
+                case CAT_LIST:
+                    NavigationHelper.printCategories(categories);
+                    break;
+                case ADD_TO_CART:
+                    NavigationHelper.getAllProducts(categories);
+                    System.out.println("Select product:");
+
+                    user.getShoppingCart().addProductToCart(product3);
+                    break;
+                case CONFIRM_ORDER:
+                    System.out.println(user.getShoppingCart().toString());
+                    user.getShoppingCart().сlearCart();
+                    break;
+                case EXIT:
+                    System.exit(0);
+            }
         }
     }
 }

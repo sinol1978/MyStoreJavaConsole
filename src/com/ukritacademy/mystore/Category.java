@@ -38,12 +38,13 @@ public class Category {
         }
         temp[this.products.length] = product;
         products = temp;
+
     }
 
     public void printProductsInCategory() {
         int i = 0;
         for (Product item : products) {
-            System.out.println("\t" + (++i) + ". " + item);
+            System.out.println(String.format("%5s.\t%s", ++i, item));
         }
     }
 
