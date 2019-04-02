@@ -36,7 +36,7 @@ public class NavigationHelper {
 //        return categories[indexCat - 1].getProducts()[indexProduct-1];
 //    }
 
-    public static Product selectProduct(Category[] categories){
+    public static Product selectProduct(Category[] categories) {
         System.out.println("Enter category number:");
         int catIndex = getIndex() - 1;
         System.out.println("Enter product number:");

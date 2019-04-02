@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-     
+
         Product product1 = new Product("Comics book", 10.5, 5);
         Product product2 = new Product("Magazine", 1.2, 3);
         Product product3 = new Product("Canon", 300.5, 5);
@@ -27,7 +27,7 @@ public class Main {
         cat3.addProduct(product7);
 
         User user = new User();
-        while(true) {
+        while (true) {
             System.out.println("1. Log In\t2. Categories\t3. Add To Cart\t4. Confirm Order\t5. Exit");
 
             Scanner sc = new Scanner(System.in);
