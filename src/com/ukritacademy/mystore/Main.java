@@ -28,7 +28,7 @@ public class Main {
 
         User user = new User();
         while(true) {
-            System.out.println("1. Log In\t2. Categories\t3. Products\t4. Cart\t5. Confirm Order\t6. Exit");
+            System.out.println("1. Log In\t2. Categories\t3. Add To Cart\t4. Confirm Order\t5. Exit");
 
             Scanner sc = new Scanner(System.in);
             String choice = sc.nextLine();
@@ -41,10 +41,8 @@ public class Main {
                     NavigationHelper.printCategories(categories);
                     break;
                 case ADD_TO_CART:
-                    NavigationHelper.getAllProducts(categories);
-                    System.out.println("Select product:");
-
-                    user.getShoppingCart().addProductToCart(product3);
+                    Product product = NavigationHelper.selectProduct(categories);
+                    user.getShoppingCart().addProductToCart(product);
                     break;
                 case CONFIRM_ORDER:
                     System.out.println(user.getShoppingCart().toString());

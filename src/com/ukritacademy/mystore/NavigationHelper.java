@@ -18,21 +18,30 @@ public class NavigationHelper {
         int i = 1;
         for (Category item : categories) {
             System.out.println(i++ + ". " + item);
+            printProductsInCategory(item);
         }
     }
 
-    public static Product selectProductInCategories(Category[] categories) {
-        System.out.println("Select category: ");
-        int indexCat = getIndex();
-        if (indexCat > 0 && indexCat <= categories.length) {
-            printProductsInCategory(categories[indexCat - 1]);
-        } else {
-            System.out.println("Wrong category number!");
-        }
-        System.out.println("Select product: ");
-        int indexProduct = getIndex();
+//    public static Product selectProductInCategories(Category[] categories) {
+//        System.out.println("Select category: ");
+//        int indexCat = getIndex();
+//        if (indexCat > 0 && indexCat <= categories.length) {
+//            printProductsInCategory(categories[indexCat - 1]);
+//        } else {
+//            System.out.println("Wrong category number!");
+//        }
+//        System.out.println("Select product: ");
+//        int indexProduct = getIndex();
+//
+//        return categories[indexCat - 1].getProducts()[indexProduct-1];
+//    }
 
-        return categories[indexCat - 1].getProducts()[indexProduct-1];
+    public static Product selectProduct(Category[] categories){
+        System.out.println("Enter category number:");
+        int catIndex = getIndex() - 1;
+        System.out.println("Enter product number:");
+        int prodIndex = getIndex() - 1;
+        return categories[catIndex].getProducts()[prodIndex];
     }
 
     public static int getIndex() {
@@ -45,17 +54,16 @@ public class NavigationHelper {
 
 
     public static void printProductsInCategory(Category category) {
-        System.out.println(category);
         int i = 1;
         for (Product item : category.getProducts()) {
-            System.out.println(String.format("%s. %s", i++, item));
+            System.out.println(String.format("\t%s. %s", i++, item));
         }
     }
 
     public static void getAllProducts(Category[] categories) {
         for (Category item : categories) {
             System.out.println(item);
-            item.printProductsInCategory();
+            printProductsInCategory(item);
         }
     }
 
