@@ -22,20 +22,6 @@ public class NavigationHelper {
         }
     }
 
-//    public static Product selectProductInCategories(Category[] categories) {
-//        System.out.println("Select category: ");
-//        int indexCat = getIndex();
-//        if (indexCat > 0 && indexCat <= categories.length) {
-//            printProductsInCategory(categories[indexCat - 1]);
-//        } else {
-//            System.out.println("Wrong category number!");
-//        }
-//        System.out.println("Select product: ");
-//        int indexProduct = getIndex();
-//
-//        return categories[indexCat - 1].getProducts()[indexProduct-1];
-//    }
-
     public static Product selectProduct(Category[] categories) {
         System.out.println("Enter category number:");
         int catIndex = getIndex() - 1;
@@ -52,22 +38,10 @@ public class NavigationHelper {
         return 0;
     }
 
-
     public static void printProductsInCategory(Category category) {
         int i = 1;
         for (Product item : category.getProducts()) {
             System.out.println(String.format("\t%s. %s", i++, item));
         }
-    }
-
-    public static void getAllProducts(Category[] categories) {
-        for (Category item : categories) {
-            System.out.println(item);
-            printProductsInCategory(item);
-        }
-    }
-
-    public static Scanner getScanner() {
-        return scanner;
     }
 }
