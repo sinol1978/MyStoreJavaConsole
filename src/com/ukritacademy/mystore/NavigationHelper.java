@@ -44,4 +44,8 @@ public class NavigationHelper {
             System.out.println(String.format("\t%s. %s", i++, item));
         }
     }
+
+    public static Scanner getScanner() {
+        return scanner;
+    }
 }

@@ -30,9 +30,7 @@ public class Main {
         while (true) {
             System.out.println("1. Log In\t2. Categories\t3. Add To Cart\t4. Confirm Order\t5. Exit");
 
-            Scanner sc = new Scanner(System.in);
-            String choice = sc.nextLine();
-            Action action = Action.values()[Integer.parseInt(choice) - 1];
+            Action action = Action.values()[Integer.parseInt(NavigationHelper.getScanner().nextLine()) - 1];
             switch (action) {
                 case LOGIN:
                     user = NavigationHelper.getAuth();
@@ -45,7 +43,7 @@ public class Main {
                     user.getShoppingCart().addProductToCart(product);
                     break;
                 case CONFIRM_ORDER:
-                    System.out.println(user.getShoppingCart().toString());
+                    System.out.println(user.getShoppingCart());
                     user.getShoppingCart().сlearCart();
                     break;
                 case EXIT:
