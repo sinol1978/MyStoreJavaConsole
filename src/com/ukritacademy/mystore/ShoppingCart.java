@@ -1,21 +1,30 @@
 package com.ukritacademy.mystore;
 
 import java.io.UnsupportedEncodingException;
+import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ShoppingCart {
     private Product[] productsInCart;
+    private LocalDateTime date;
+
     private ResourceBundle rb = ResourceBundle.getBundle("cart", new Locale("en", "EN"));
     //private ResourceBundle rb = ResourceBundle.getBundle("cart", new Locale ("ru", "RU"));
 
     public ShoppingCart() {
         this.productsInCart = new Product[0];
+        date = LocalDateTime.now();
     }
 
     public Product[] getProductsInCart() {
         return productsInCart;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
     }
 
     public void setProductsInCart(Product[] productsInCart) {
@@ -54,6 +63,7 @@ public class ShoppingCart {
 
     @Override
     public String toString() {
+        System.out.println(getDate().getDayOfMonth() + " - " + getDate().getMonth() + " - " + getDate().getYear());
         double total = 0.0;
         for (Product item : productsInCart) {
             total += item.getPrice();
