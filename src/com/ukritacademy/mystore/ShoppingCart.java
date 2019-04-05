@@ -1,9 +1,14 @@
 package com.ukritacademy.mystore;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class ShoppingCart {
     private Product[] productsInCart;
+    private ResourceBundle rb = ResourceBundle.getBundle("cart", new Locale("en", "EN"));
+    //private ResourceBundle rb = ResourceBundle.getBundle("cart", new Locale ("ru", "RU"));
 
     public ShoppingCart() {
         this.productsInCart = new Product[0];
@@ -28,12 +33,16 @@ public class ShoppingCart {
         System.out.println(String.format("Product %s was added in your cart", productsInCart[productsInCart.length - 1]));
     }
 
-    public void printProductsInCart() {
+    public void printProductsInCart() throws UnsupportedEncodingException {
+
         if (productsInCart.length > 0) {
             int i = 0;
+            System.out.println(String.format("%-1s %-20s%10s%11s", rb.getString("number"), rb.getString("name"), rb.getString("price"), rb.getString("rating")));
+            System.out.println("---------------------------------------------");
             for (Product item : productsInCart) {
-                System.out.println("\t" + (++i) + ". " + item);
+                System.out.println(String.format("%-1s. %s", ++i, item));
             }
+            System.out.println("---------------------------------------------");
         } else {
             System.out.println("Shopping cart is empty.");
         }
@@ -49,7 +58,14 @@ public class ShoppingCart {
         for (Product item : productsInCart) {
             total += item.getPrice();
         }
-        return "Shopping Cart:\t" + this.productsInCart.length + " pcs.\tTotal: " + total;
+        try {
+            printProductsInCart();
+//            printProductsInCart(Locale.ROOT);
+        } catch (UnsupportedEncodingException e) {
+
+        }
+        return String.format("%s: %s %s.\t%s: %7.2f", rb.getString("scart"), this.productsInCart.length, rb.getString("pcs"), rb.getString("total"), total);
+
     }
 
     @Override
