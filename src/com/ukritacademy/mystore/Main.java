@@ -29,8 +29,8 @@ public class Main {
         User user = new User();
         while (true) {
             System.out.println("1. Log In\t2. Categories\t3. Add To Cart\t4. Confirm Order\t5. Exit");
-
-            Action action = Action.values()[Integer.parseInt(NavigationHelper.getScanner().nextLine()) - 1];
+            Scanner scanner = new Scanner(System.in);
+            Action action = Action.values()[Integer.parseInt(scanner.nextLine()) - 1];
             switch (action) {
                 case LOGIN:
                     user = NavigationHelper.getAuth();

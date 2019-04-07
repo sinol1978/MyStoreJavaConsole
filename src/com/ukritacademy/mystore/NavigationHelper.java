@@ -31,7 +31,7 @@ public abstract class NavigationHelper {
     }
 
     public static int getIndex() {
-        scanner = new Scanner(System.in);
+        //scanner = new Scanner(System.in);
         if (scanner.hasNextInt()) {
             return scanner.nextInt();
         }
