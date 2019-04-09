@@ -11,8 +11,8 @@ public class ShoppingCart {
     private Product[] productsInCart;
     private LocalDateTime date;
 
-    private ResourceBundle rb = ResourceBundle.getBundle("cart", new Locale("en", "EN"));
-    //private ResourceBundle rb = ResourceBundle.getBundle("cart", new Locale ("ru", "RU"));
+    //private ResourceBundle rb = ResourceBundle.getBundle("cart", new Locale("en", "EN"));
+    private ResourceBundle rb = ResourceBundle.getBundle("cart", new Locale ("ua", "UA"));
 
     public ShoppingCart() {
         this.productsInCart = new Product[0];
@@ -74,7 +74,7 @@ public class ShoppingCart {
         } catch (UnsupportedEncodingException e) {
 
         }
-        return String.format("%s: %s %s.\t%s: %7.2f", rb.getString("scart"), this.productsInCart.length, rb.getString("pcs"), rb.getString("total"), total);
+        return String.format("%s: %s %s.\t%s: %7.2f$", rb.getString("scart"), this.productsInCart.length, rb.getString("pcs"), rb.getString("total"), total);
 
     }
 

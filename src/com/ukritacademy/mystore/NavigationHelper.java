@@ -2,7 +2,7 @@ package com.ukritacademy.mystore;
 
 import java.util.Scanner;
 
-public abstract class NavigationHelper {
+public class NavigationHelper {
     private static Scanner scanner = new Scanner(System.in);
 
     public static User getAuth() {
