@@ -11,8 +11,8 @@ public class ShoppingCart {
     private Product[] productsInCart;
     private LocalDateTime date;
 
-    //private ResourceBundle rb = ResourceBundle.getBundle("cart", new Locale("en", "EN"));
-    private ResourceBundle rb = ResourceBundle.getBundle("cart", new Locale ("ua", "UA"));
+    private ResourceBundle rb = ResourceBundle.getBundle("cart", new Locale("en", "EN"));
+    //private ResourceBundle rb = ResourceBundle.getBundle("cart", new Locale ("ua", "UA"));
 
     public ShoppingCart() {
         this.productsInCart = new Product[0];

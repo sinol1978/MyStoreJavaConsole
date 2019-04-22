@@ -1,16 +1,26 @@
 package com.ukritacademy.mystore;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Category {
-
+    private int id;
     private String name;
-    private Product[] products;
+    private List<Product> products;
 
-    public Category(String name) {
+    public Category(int id, String name) {
+        this.id = id;
         this.name = name;
-        products = new Product[0];
+        this.products = new ArrayList<>();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -21,35 +31,33 @@ public class Category {
         this.name = name;
     }
 
-    public Product[] getProducts() {
+    public List getProducts() {
         return products;
     }
 
-    public void setProducts(Product[] products) {
-        this.products = products;
-    }
-
-    public void addProduct(Product product) {
-        Product[] temp = new Product[this.products.length + 1];
-        int i = 0;
-        for (Product item : this.products) {
-            temp[i++] = item;
+    public boolean addProduct(Product product) {
+        try{
+            this.products.add(product);
+            return true;
         }
-        temp[this.products.length] = product;
-        products = temp;
-
+        catch(Exception e){
+            return false;
+        }
     }
 
-//    public void printProductsInCategory() {
-//        int i = 0;
-//        for (Product item : products) {
-//            System.out.println(String.format("%5s.\t%s", ++i, item));
-//        }
-//    }
+    public boolean removeProduct(Product product) {
+        try{
+            this.products.remove(product);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
 
     @Override
     public String toString() {
-        return String.format("Category: %10s\t\tProducts%3s", this.getName(), this.products.length);
+        return String.format("Category: %10s\t\tProducts%3s", this.getName(), this.products.size());
     }
 
     @Override
@@ -58,13 +66,11 @@ public class Category {
         if (o == null || getClass() != o.getClass()) return false;
         Category category = (Category) o;
         return Objects.equals(name, category.name) &&
-                Arrays.equals(products, category.products);
+                Objects.equals(products, category.products);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name);
-        result = 31 * result + Arrays.hashCode(products);
-        return result;
+        return Objects.hash(name, products);
     }
 }

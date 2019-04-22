@@ -27,11 +27,10 @@ public class NavigationHelper {
         int catIndex = getIndex() - 1;
         System.out.println("Enter product number:");
         int prodIndex = getIndex() - 1;
-        return categories[catIndex].getProducts()[prodIndex];
+        return (Product) categories[catIndex].getProducts().get(prodIndex);
     }
 
     public static int getIndex() {
-        //scanner = new Scanner(System.in);
         if (scanner.hasNextInt()) {
             return scanner.nextInt();
         }
@@ -39,10 +38,7 @@ public class NavigationHelper {
     }
 
     public static void printProductsInCategory(Category category) {
-        int i = 1;
-        for (Product item : category.getProducts()) {
-            System.out.println(String.format("\t%s. %s", i++, item));
-        }
+        category.getProducts().forEach(System.out::println);
     }
 
     public static Scanner getScanner() {

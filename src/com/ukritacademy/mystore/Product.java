@@ -3,15 +3,26 @@ package com.ukritacademy.mystore;
 import java.util.Objects;
 
 public class Product {
-
+    private int id;
     private String name;
     private double price;
     private int rating;
+    private int categoryId;
 
-    public Product(String name, double price, int rating) {
+    public Product(int id, String name, double price, int rating, int categoryId) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.rating = rating;
+        this.categoryId = categoryId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -36,6 +47,14 @@ public class Product {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     @Override
