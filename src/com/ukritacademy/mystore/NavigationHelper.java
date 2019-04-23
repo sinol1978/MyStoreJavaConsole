@@ -1,5 +1,6 @@
 package com.ukritacademy.mystore;
 
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class NavigationHelper {
@@ -38,6 +39,8 @@ public class NavigationHelper {
     }
 
     public static void printProductsInCategory(Category category) {
+        Comparator<Product> productComparator = Comparator.comparing(Product::getPrice);
+        category.getProducts().sort(productComparator);
         category.getProducts().forEach(System.out::println);
     }
 

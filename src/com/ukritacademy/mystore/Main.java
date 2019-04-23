@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Product product1 = new Product(0, "Comics book", 10.5, 5, 0);
-        Product product2 = new Product(1, "Magazine", 1.2, 3, 0);
-        Product product3 = new Product(2, "Canon", 300.5, 5, 1);
-        Product product4 = new Product(3, "Nikon", 150.5, 4, 1);
-        Product product5 = new Product(4, "Scott", 730.5, 3, 2);
-        Product product6 = new Product(5, "Cannondale", 900.5, 5, 2);
-        Product product7 = new Product(6, "Shwinn", 870.5, 4, 2);
+        Product product1 = new Product(0, "Comics book", 10.5, 5);
+        Product product2 = new Product(1, "Magazine", 1.2, 3);
+        Product product3 = new Product(2, "Canon", 300.5, 5);
+        Product product4 = new Product(3, "Nikon", 150.5, 4);
+        Product product5 = new Product(4, "Scott", 730.5, 3);
+        Product product6 = new Product(5, "Cannondale", 900.5, 5);
+        Product product7 = new Product(6, "Shwinn", 870.5, 4);
 
         Category cat1 = new Category(0,"Cameras");
         Category cat2 = new Category(1,"Books");
@@ -25,6 +25,8 @@ public class Main {
         cat3.addProduct(product5);
         cat3.addProduct(product6);
         cat3.addProduct(product7);
+
+
 
         User user = new User();
         while (true) {

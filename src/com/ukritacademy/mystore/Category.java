@@ -36,21 +36,20 @@ public class Category {
     }
 
     public boolean addProduct(Product product) {
-        try{
+        try {
+            product.setCategoryId(this.id);
             this.products.add(product);
             return true;
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
     public boolean removeProduct(Product product) {
-        try{
+        try {
             this.products.remove(product);
             return true;
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
