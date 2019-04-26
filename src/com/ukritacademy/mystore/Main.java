@@ -1,5 +1,7 @@
 package com.ukritacademy.mystore;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -26,16 +28,42 @@ public class Main {
         cat3.addProduct(product6);
         cat3.addProduct(product7);
 
-
-
+        //User user = new User();
+        Map<Integer, User> users = new HashMap<>();
+        User user1 = new User(1, "nickname1", "password1");
+        User user2 = new User(2, "nickname2", "password2");
+        User user3 = new User(3, "nickname3", "password3");
+        users.put(user1.getId(), user1);
+        users.put(user2.getId(), user2);
+        users.put(user3.getId(), user3);
         User user = new User();
         while (true) {
             System.out.println("1. Log In\t2. Categories\t3. Add To Cart\t4. Confirm Order\t5. Exit");
             Scanner scanner = new Scanner(System.in);
             Action action = Action.values()[Integer.parseInt(scanner.nextLine()) - 1];
             switch (action) {
+                case REGISTRATION:
+                    User tempUser1 = NavigationHelper.getAuth();
+                    System.out.println("Registration:");
+                    if(users.containsKey(tempUser1.getId()) && users.containsValue(tempUser1)){
+                        System.out.println("This user already exists!");
+                    }
+                    else{
+                        users.put(tempUser1.getId(), tempUser1);
+                        System.out.println("Registration completed.");
+                    }
+                    break;
                 case LOGIN:
-                    user = NavigationHelper.getAuth();
+                    System.out.println("Log in:");
+                    User tempUser2 = NavigationHelper.getAuth();
+                    if(users.containsKey(tempUser2.getId()) && users.containsValue(tempUser2)){
+                        System.out.printf("Welcome, %s!\n", tempUser2.getLogin());
+                        user = tempUser2;
+                    }
+                    else{
+                        System.out.println("This user doesn't exist!");
+                        System.out.println("Please compete the registration.");
+                    }
                     break;
                 case CAT_LIST:
                     NavigationHelper.printCategories(categories);
