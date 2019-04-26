@@ -3,7 +3,7 @@ package com.ukritacademy.mystore;
 import java.util.Objects;
 
 public class User {
-    private int id;
+    private static int id = 0;
     private String login;
     private String password;
     private ShoppingCart shoppingCart;
@@ -11,8 +11,8 @@ public class User {
     public User() {
     }
 
-    public User(int id, String login, String password) {
-        this.id = id;
+    public User(String login, String password) {
+        id++;
         this.login = login;
         this.password = password;
         this.shoppingCart = new ShoppingCart();
