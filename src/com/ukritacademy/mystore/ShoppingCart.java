@@ -25,16 +25,16 @@ public class ShoppingCart {
     }
 
     public boolean addProductToCart(Product product) {
-        try{
+        try {
             this.productsInCart.add(product);
             System.out.println(String.format("Product %s was added in your cart", product));
             return true;
-        }catch(Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
-    public void printProductsInCart() throws UnsupportedEncodingException {
+    public void printProductsInCart() {
 
         if (!productsInCart.isEmpty()) {
             int i = 0;
@@ -60,12 +60,7 @@ public class ShoppingCart {
         for (Product item : productsInCart) {
             total += item.getPrice();
         }
-        try {
-            printProductsInCart();
-//            printProductsInCart(Locale.ROOT);
-        } catch (UnsupportedEncodingException e) {
-
-        }
+        printProductsInCart();
         return String.format("%s: %s %s.\t%s: %7.2f$", rb.getString("scart"), this.productsInCart.size(), rb.getString("pcs"), rb.getString("total"), total);
     }
 
