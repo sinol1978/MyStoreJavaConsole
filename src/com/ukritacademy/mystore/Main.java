@@ -38,14 +38,14 @@ public class Main {
         users.put(user3.getLogin(), user3);
         User user = new User();
         while (true) {
-            System.out.println("1. Log In\t2. Categories\t3. Add To Cart\t4. Confirm Order\t5. Exit");
+            System.out.println("1. Registration\t2. Log In\t3. Categories\t4. Add To Cart\t5. Confirm Order\t6. Exit");
             Scanner scanner = new Scanner(System.in);
             Action action = Action.values()[Integer.parseInt(scanner.nextLine()) - 1];
             switch (action) {
                 case REGISTRATION:
-                    User tempUser1 = NavigationHelper.getAuth();
                     System.out.println("Registration:");
-                    if(users.containsKey(tempUser1.getLogin()) && users.containsValue(tempUser1)){
+                    User tempUser1 = NavigationHelper.getAuth();
+                    if(users.keySet().contains(tempUser1.getLogin())){
                         System.out.println("This user already exists!");
                     }
                     else{
@@ -56,7 +56,7 @@ public class Main {
                 case LOGIN:
                     System.out.println("Log in:");
                     User tempUser2 = NavigationHelper.getAuth();
-                    if(users.containsKey(tempUser2.getLogin()) && users.containsValue(tempUser2)){
+                    if(users.keySet().contains(tempUser2.getLogin())){
                         System.out.printf("Welcome, %s!\n", tempUser2.getLogin());
                         user = tempUser2;
                     }

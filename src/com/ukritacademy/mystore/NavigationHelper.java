@@ -8,9 +8,9 @@ public class NavigationHelper {
 
     public static User getAuth() {
         String login, password;
-        System.out.println("Login: ");
+        System.out.println("Please enter your login: ");
         login = scanner.nextLine();
-        System.out.println("Password: ");
+        System.out.println("Please enter your password: ");
         password = scanner.nextLine();
         return new User(login, password);
     }

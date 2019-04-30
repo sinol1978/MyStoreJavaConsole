@@ -51,8 +51,7 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return Objects.equals(login, user.login) &&
-                Objects.equals(password, user.password) &&
-                Objects.equals(shoppingCart, user.shoppingCart);
+                Objects.equals(password, user.password);
     }
 
     @Override
