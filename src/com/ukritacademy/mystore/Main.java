@@ -28,11 +28,10 @@ public class Main {
         cat3.addProduct(product6);
         cat3.addProduct(product7);
 
-        //User user = new User();
         Map<String, User> users = new HashMap<>();
-        User user1 = new User("nickname1", "password1");
-        User user2 = new User("nickname2", "password2");
-        User user3 = new User("nickname3", "password3");
+        User user1 = new User("user1@gmail.com", "password1");
+        User user2 = new User("user2@ukr.net", "password2");
+        User user3 = new User("user3@mail.ua", "password3");
         users.put(user1.getLogin(), user1);
         users.put(user2.getLogin(), user2);
         users.put(user3.getLogin(), user3);
@@ -45,12 +44,14 @@ public class Main {
                 case REGISTRATION:
                     System.out.println("Registration:");
                     User tempUser1 = NavigationHelper.getAuth();
-                    if(users.keySet().contains(tempUser1.getLogin())){
-                        System.out.println("This user already exists!");
-                    }
-                    else{
-                        users.put(tempUser1.getLogin(), tempUser1);
-                        System.out.println("Registration completed.");
+                    if(NavigationHelper.verify(tempUser1.getLogin(), tempUser1.getPassword())) {
+                        if (users.keySet().contains(tempUser1.getLogin())) {
+                            System.out.println("This user already exists!");
+                        } else {
+                            users.put(tempUser1.getLogin(), tempUser1);
+                            System.out.println("Registration completed.");
+                        }
+                        break;
                     }
                     break;
                 case LOGIN:
