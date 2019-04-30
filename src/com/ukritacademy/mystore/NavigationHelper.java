@@ -12,7 +12,10 @@ public class NavigationHelper {
         login = scanner.nextLine();
         System.out.println("Please enter your password: ");
         password = scanner.nextLine();
-        return new User(login, password);
+        if(verify(login, password)) {
+            return new User(login, password);
+        }
+        return new User();
     }
 
     public static void printCategories(Category[] categories) {
@@ -46,5 +49,20 @@ public class NavigationHelper {
 
     public static Scanner getScanner() {
         return scanner;
+    }
+
+    private static boolean verify(String login, String password){
+        try {
+            if (login.length() > 20) {
+                throw new LoginException("Login length is more than 20 chars");
+            }
+            if (password.length() > 20) {
+                throw new PasswordException("Password error");
+            }
+        } catch (LoginException | PasswordException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
     }
 }
